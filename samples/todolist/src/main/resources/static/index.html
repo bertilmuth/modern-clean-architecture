@@ -1,0 +1,36 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css">
+    <script src="https://kit.fontawesome.com/62e0dfa101.js" crossorigin="anonymous"></script>
+    <title>To Do List</title>
+</head>
+<body onload="restoreList()">
+    <!-- TITLE -->
+    <header>
+        <h1>To Do List</h1>
+    </header>
+    <!-- INPUT FIELD TO ENTER TASK AND DROPDOWN FILTER -->
+    <form>
+        <input type="text" placeholder="Enter task" class="task_name" />
+        <button class="addTask_button" type="submit">
+            <i class="fas fa-plus-square"></i>
+        </button>
+        <div class="select">
+            <select name="todos" class="filter_todo">
+                <option value="all">All</option>
+                <option value="completed">Completed</option>
+                <option value="uncompleted">Uncompleted</option>
+            </select>
+        </div>
+    </form>
+    <!-- CONTAINER FOR DISPLAYING TO-DO LIST BY ADDING TASKS DYNAMICALLY USING JAVASCRIPT -->
+    <div class="todo_container">
+        <ul class="todo_list"></ul>
+    </div>
+    <!-- ADDING JAVA SCRIPT -->
+    <script src="./main.js"></script>
+</body>
+</html>

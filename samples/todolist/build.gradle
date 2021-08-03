@@ -1,0 +1,46 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        maven {
+            url "https://oss.sonatype.org/content/repositories/snapshots/"
+        }
+    }
+	dependencies {    
+		classpath platform("org.jmolecules:jmolecules-bom:2021.0.2")
+		classpath "org.jmolecules.integrations:jmolecules-bytebuddy" 
+	}
+}
+
+plugins {
+	id "io.freefair.lombok" version "6.0.0-m2"
+	id "net.bytebuddy.byte-buddy-gradle-plugin" version "1.11.0"
+	id "org.springframework.boot" version "2.5.3"
+	id "io.spring.dependency-management" version "1.0.11.RELEASE"
+}
+
+byteBuddy {
+	transformation{
+	    plugin = org.jmolecules.bytebuddy.JMoleculesPlugin
+	}
+}
+
+gradle.projectsEvaluated {
+     tasks.withType(JavaCompile) {
+         options.compilerArgs << "-parameters"
+     }
+}
+	
+dependencies {	
+	implementation "org.springframework.boot:spring-boot-starter-web"
+	implementation "org.springframework.boot:spring-boot-starter-data-jpa"
+	implementation "org.springframework.boot:spring-boot-starter-test"
+	implementation "com.h2database:h2"
+	
+	implementation platform("org.jmolecules:jmolecules-bom:2021.0.2")
+	implementation "org.jmolecules:jmolecules-ddd"	
+	implementation "org.jmolecules.integrations:jmolecules-jpa"
+	implementation "org.jmolecules.integrations:jmolecules-spring"
+	
+	implementation ("org.requirementsascode:spring:" + version)
+	implementation ("org.requirementsascode:spring-test:" + version)
+}

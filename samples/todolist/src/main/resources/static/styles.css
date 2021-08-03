@@ -1,0 +1,134 @@
+/* REMOVING THE DEFAULT STYLINGS FROM THE PAGE */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* ADDING BACKGROUND COLOR, FONT  FAMILY, FOREGROUND COLOR AND MINIMUN HEIGHT TO OUR PAGE  */
+body{
+    background-image: linear-gradient(120deg, #5f57d1, #c065c0);
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    min-height: 100vh;
+}
+
+/* STYLYING INPUT ELEMENT AND TH EBUTTON */
+header,form{
+    display: flex;
+    min-height: 15vh;
+    justify-content: center;
+    align-items: center;    
+}
+form input, form button{
+    padding: 0.4rem;
+    border: none;
+    font-size: 1.6rem;
+    background: white;
+}
+form button{
+    color: #c065c0;
+    background: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+form button:hover{
+    background: #c065c0;
+    color: white;
+}
+/* STYLING DROPDOWN */
+select{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: none;
+    border: none;
+}
+.select{
+    margin: 1rem;
+    position: relative;
+    overflow: hidden;
+}
+select{
+    color: #c065c0;
+    width: 8rem;
+    cursor: pointer;
+    padding: 0.7rem;
+}
+.select::after{
+    content: "\25bc";
+    position: absolute;
+    color: #c065c0;
+    top: 7px;
+    right: 6px;
+    pointer-events: none;
+}
+.select:hover::after{
+   color: #583429;
+}
+
+/* STYLING CONTAINER WHERE THE TASKS ARE SHOWN */
+.todo_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.todo_list{
+    min-width: 40%;
+    list-style: none;
+}
+
+.todo{
+    margin: 5px auto;
+    background: white;
+    color: #000000;
+    display: flex;
+    font-size: 1.2rem;
+    padding: 0.3rem;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.5s ease;
+}
+
+.todo li {
+    flex: 1;
+}
+
+/* STYLING THE BUTTONS ON THE TASKS  */
+.complete_btn, 
+.delete_btn{
+    padding: 0.5rem;
+    background: #ff3700;
+    color: white;
+    border: none;
+    margin-left: 0.2rem;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.complete_btn{
+    background: rgb(67, 179, 67);
+}
+.complete_btn:active{
+    background: green;
+}
+
+.delete_btn:active{
+    background: #b65337;
+}
+
+.fa-trash,
+.fa-check{
+    pointer-events: none;
+}
+
+/* STYLING TASK THAT IS COMPLETED */
+.completedTask{
+    text-decoration: line-through;
+    opacity: 0.5;
+    transform: scale(0.96);
+}
+/* DELETING THE TASKS */
+.fall{
+    transform: translateY(4rem) scale(0.4) rotateZ(20deg);
+    opacity: 0;
+}

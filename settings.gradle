@@ -1,4 +1,4 @@
-include 'spring'
+include 'spring-web'
 include 'spring-test'
 include 'samples:todolist'
 

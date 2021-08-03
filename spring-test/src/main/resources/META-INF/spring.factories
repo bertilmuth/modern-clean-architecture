@@ -1,8 +1,3 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-org.requirementsascode.spring.behavior.BehaviorConfiguration,\
-org.requirementsascode.spring.behavior.SerializationConfiguration,\
-org.requirementsascode.spring.controller.BehaviorController
-
 org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc=\
 org.requirementsascode.spring.behavior.BehaviorConfiguration,\
 org.requirementsascode.spring.behavior.SerializationConfiguration,\

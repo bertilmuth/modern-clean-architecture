@@ -1,4 +1,6 @@
 # modern-clean-architecture
+[![Gitter](https://badges.gitter.im/requirementsascode/community.svg)](https://gitter.im/requirementsascode/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+
 Libraries for creating services with a [clean architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html), but with significantly less effort necessary than usual.
 
 Clean architecture follows these principles:

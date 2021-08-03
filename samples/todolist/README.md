@@ -1,7 +1,7 @@
 # todo list sample
 To run the sample, change into your local todolist directory, and enter the following in a shell:
 
-`./gradlew bootRun`.
+`./gradlew bootRun`
 
 Then, visit `http://localhost:8080/` in your browser.
 

@@ -1,3 +1,8 @@
+// URL for posting all requests,
+// Must be the same as the on in application.properties
+// (See https://github.com/bertilmuth/modern-clean-architecture/blob/main/samples/todolist/src/main/resources/application.properties)
+const BEHAVIOR_ENDPOINT = "/todolist";
+
 //variables
 var todoListUuid;
 
@@ -143,11 +148,9 @@ function createAndAddTask(taskUuid, taskText, completed){
 }
 
 
-function post(jsonObject, responseHandler) {
-	const url = "/todolist";
-	
+function post(jsonObject, responseHandler) {	
 	const xhr = new XMLHttpRequest();
-	xhr.open("POST", url);
+	xhr.open("POST", BEHAVIOR_ENDPOINT);
 
 	xhr.setRequestHeader("Accept", "application/json");
 	xhr.setRequestHeader("Content-Type", "application/json");

@@ -95,15 +95,15 @@ public class TodoListBehaviorModel implements BehaviorModel {
 		return new EmptyResponse();
 	}
 
-	private FindOrCreateList findOrCreateList() {
+	private Function<FindOrCreateListRequest, FindOrCreateListResponse> findOrCreateList() {
 		return new FindOrCreateList(todoLists);
 	}
 
-	private AddTask addTask() {
+	private Function<AddTaskRequest, AddTaskResponse> addTask() {
 		return new AddTask(todoLists);
 	}
-	
-	private ToggleTaskCompletion toggleTaskCompletion() {
+
+	private Consumer<ToggleTaskCompletionRequest> toggleTaskCompletion() {
 		return new ToggleTaskCompletion(todoLists);
 	}
 	...

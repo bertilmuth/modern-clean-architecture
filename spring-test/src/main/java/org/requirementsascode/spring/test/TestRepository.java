@@ -8,10 +8,6 @@ import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
-import org.jmolecules.ddd.types.AggregateRoot;
-import org.jmolecules.ddd.types.Identifier;
-import org.jmolecules.ddd.types.Repository;
-
 /**
  * An in memory test double for a Spring CrudRepository.
  * 
@@ -22,7 +18,7 @@ import org.jmolecules.ddd.types.Repository;
  * @param <T>  the type of entities to persist
  * @param <ID> the id type
  */
-public class TestRepository<T extends AggregateRoot<T, ID>, ID extends Identifier> implements Repository<T, ID> {
+public class TestRepository<T, ID>{
 	private static final String THE_GIVEN_ID_MUST_NOT_BE_NULL = "The given id must not be null!";
 	private static final String IDS_MUST_NOT_BE_NULL = "Ids must not be null!";
 	private static final String ENTITY_MUST_NOT_BE_NULL = "Entity must not be null!";

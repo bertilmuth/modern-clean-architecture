@@ -2,11 +2,7 @@ package org.requirementsascode.spring.test;
 
 import java.util.UUID;
 
-import org.jmolecules.ddd.types.AggregateRoot;
-import org.jmolecules.ddd.types.Identifier;
-import org.requirementsascode.spring.test.TestEntity.TestEntityId;
-
-class TestEntity implements AggregateRoot<TestEntity, TestEntityId> {
+class TestEntity{
 	private TestEntityId id;
 	private String content;
 
@@ -19,7 +15,7 @@ class TestEntity implements AggregateRoot<TestEntity, TestEntityId> {
 		this.content = content;
 	}
 
-	public static class TestEntityId implements Identifier {
+	public static class TestEntityId {
 		final UUID uuid;
 
 		private TestEntityId(UUID uuid) {

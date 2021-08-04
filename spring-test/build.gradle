@@ -12,9 +12,4 @@ jar {
 dependencies {	
 	implementation "org.springframework.boot:spring-boot-starter-web:$project.ext.springVersion"
 	implementation "org.springframework.boot:spring-boot-starter-test:$project.ext.springVersion"
-
-	implementation platform("org.jmolecules:jmolecules-bom:2021.0.2")
-	implementation "org.jmolecules:jmolecules-ddd"	
-	implementation "org.jmolecules.integrations:jmolecules-jpa"
-	implementation "org.jmolecules.integrations:jmolecules-spring"
 }

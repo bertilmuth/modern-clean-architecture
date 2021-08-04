@@ -68,7 +68,7 @@ public class MessageSerializationModule extends SimpleModule {
 		dontFailOnUnknownProperties(objectMapper);
 		dontFailOnEmptyBeans(objectMapper);
 		registerClassesForJsonDeserialization(objectMapper, messageClasses);
-		serializeObjectProperties(context, messageClasses);
+		serializeObjectProperties(context);
 	}
 
 	private void makeAllClassFieldsVisible(ObjectMapper objectMapper) {
@@ -93,7 +93,7 @@ public class MessageSerializationModule extends SimpleModule {
 		objectMapper.setDefaultTyping(typeResolverBuilder);
 	}
 
-	private void serializeObjectProperties(SetupContext context, Collection<Class<?>> messageClasses) {
+	private void serializeObjectProperties(SetupContext context) {
 		final ParameterExtractor parameterExtractor = new ParameterExtractor();
 		final AnnotationIntrospector ai = new AdaptedParameterNamesAnnotationIntrospector(parameterExtractor);
 		context.insertAnnotationIntrospector(ai);

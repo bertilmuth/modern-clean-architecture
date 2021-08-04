@@ -1,15 +1,22 @@
 package com.example.todolist.behavior;
 
+import java.util.function.Consumer;
+import java.util.function.Function;
+
 import org.requirementsascode.BehaviorModel;
 import org.requirementsascode.Model;
 
 import com.example.todolist.behavior.request.AddTaskRequest;
-import com.example.todolist.behavior.request.ToggleTaskCompletionRequest;
-import com.example.todolist.behavior.request.FindOrCreateListRequest;
 import com.example.todolist.behavior.request.DeleteTaskRequest;
+import com.example.todolist.behavior.request.FindOrCreateListRequest;
 import com.example.todolist.behavior.request.ListTasksByCompletionRequest;
 import com.example.todolist.behavior.request.ListTasksRequest;
+import com.example.todolist.behavior.request.ToggleTaskCompletionRequest;
+import com.example.todolist.behavior.response.AddTaskResponse;
 import com.example.todolist.behavior.response.EmptyResponse;
+import com.example.todolist.behavior.response.FindOrCreateListResponse;
+import com.example.todolist.behavior.response.ListTasksByCompletionResponse;
+import com.example.todolist.behavior.response.ListTasksResponse;
 import com.example.todolist.domain.TodoLists;
 
 import lombok.AllArgsConstructor;
@@ -43,27 +50,27 @@ public class TodoListBehaviorModel implements BehaviorModel {
 		return new EmptyResponse();
 	}
 
-	private FindOrCreateList findOrCreateList() {
+	private Function<FindOrCreateListRequest, FindOrCreateListResponse> findOrCreateList() {
 		return new FindOrCreateList(todoLists);
 	}
 
-	private AddTask addTask() {
+	private Function<AddTaskRequest, AddTaskResponse> addTask() {
 		return new AddTask(todoLists);
 	}
 
-	private ToggleTaskCompletion toggleTaskCompletion() {
+	private Consumer<ToggleTaskCompletionRequest> toggleTaskCompletion() {
 		return new ToggleTaskCompletion(todoLists);
 	}
 
-	private DeleteTask deleteTask() {
+	private Consumer<DeleteTaskRequest> deleteTask() {
 		return new DeleteTask(todoLists);
 	}
 
-	private ListTasks listTasks() {
+	private Function<ListTasksRequest, ListTasksResponse>  listTasks() {
 		return new ListTasks(todoLists);
 	}
 	
-	private ListTasksByCompletion listTasksByCompletion() {
+	private Function<ListTasksByCompletionRequest, ListTasksByCompletionResponse> listTasksByCompletion() {
 		return new ListTasksByCompletion(todoLists);
 	}
 }

@@ -158,3 +158,18 @@ or there is no response in step 4, the `defaultResponse(...)` method is called f
 For more examples of behavior specification, have a look at the [behavior](https://github.com/bertilmuth/modern-clean-architecture/tree/main/samples/todolist/src/main/java/com/example/todolist/behavior) package of the [todo list sample application](https://github.com/bertilmuth/modern-clean-architecture/tree/main/samples/todolist).
 
 To learn more about how to create behavior models, have a look at the [requirements as code web page](https://github.com/bertilmuth/requirementsascode).
+
+## Transactional behavior by default (customizable if necessary)
+By default, spring-web wraps every call to a request handler in a transaction (using Spring's @Transactional annotation).
+If you just want to call the request handlers without transaction support, create your own behavior bean:
+
+``` java
+@Configuration
+class StatelessBehaviorConfiguration {
+	@Bean
+	Behavior statelessBehaviorOf(BehaviorModel behaviorModel) {
+		StatelessBehavior statelessBehavior = StatelessBehavior.of(behaviorModel);
+		return statelessBehavior;
+	}
+}
+```

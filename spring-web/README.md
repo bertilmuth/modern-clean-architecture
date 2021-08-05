@@ -160,7 +160,7 @@ For more examples of behavior specification, have a look at the [behavior](https
 To learn more about how to create behavior models, have a look at the [requirements as code web page](https://github.com/bertilmuth/requirementsascode).
 
 ## Transactional behavior by default (customizable if necessary)
-By default, spring-web wraps every call to a request handler in a transaction (using Spring's @Transactional annotation).
+By default, spring-web wraps every call to a request handler in a transaction (using Spring's `@Transactional` annotation).
 If you just want to call the request handlers without transaction support, create your own behavior bean:
 
 ``` java

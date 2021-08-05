@@ -2,7 +2,6 @@ package org.requirementsascode.spring.behavior;
 
 import org.requirementsascode.Behavior;
 import org.requirementsascode.BehaviorModel;
-import org.requirementsascode.StatelessBehavior;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
@@ -28,8 +27,7 @@ class BehaviorConfiguration {
 	 */
 	@Bean
 	Behavior transactionalBehaviorOf(BehaviorModel behaviorModel) {
-		StatelessBehavior statelessBehavior = StatelessBehavior.of(behaviorModel);
-		TransactionalBehavior transactionalBehavior = new TransactionalBehavior(statelessBehavior);
+		TransactionalBehavior transactionalBehavior = new TransactionalBehavior(behaviorModel);
 		return transactionalBehavior;
 	}
 }

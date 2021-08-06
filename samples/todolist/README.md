@@ -1,7 +1,11 @@
 # todo list sample
-To run the sample, change into your local todolist directory, and enter the following in a shell:
+To run the sample with Gradle, change into your local todolist directory, and enter the following in a shell:
 
 `./gradlew bootRun`
+
+Alternatively, you can run it with Maven:
+
+`mvn spring-boot:run`
 
 Then, visit `http://localhost:8080/` in your browser.
 

@@ -1,4 +1,6 @@
 # spring-web
+[![Gitter](https://badges.gitter.im/requirementsascode/community.svg)](https://gitter.im/requirementsascode/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+
 The goal of the spring-web project is to reduce the effort to develop a modern clean architecture in a Spring Boot application.
 
 It provides the following features:

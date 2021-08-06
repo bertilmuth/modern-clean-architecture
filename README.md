@@ -8,9 +8,9 @@ Clean architecture follows these principles:
 * Through this clear separation of concern, the domain code and use cases become testable independent of the framework, UI or infrastructure.
 * The user interface, database technology, external services and framework specific code can change without affecting the domain code and vice versa.
 
-Modern clean architecture provides a fresh view on clean architecture. It reduces the effort required to create a clean architecture through the following constraints:
-* **Single, rich domain model**. For domain logic *and* persistence. No need to maintain a separate data model, and translate between data and domain model.
-* **No DTOs.** Same immutable value objects for requests/responses in web layer and use cases. 
+Modern clean architecture provides a fresh view on clean architecture. It reduces the effort required to create a clean architecture through the following features:
+* **Single, rich domain model**. For domain logic *and* persistence. No need to maintain a separate data model, and translate between data and domain model, if you don't want them to evolve separately.
+* **No necessity for DTOs.** You can use the same immutable value objects for requests/responses in web layer and use cases. 
 * **Serialization of immutable requests and responses** without serialization specific annotations.
 * **Testing with a repository double** that acts like a normal repository. No need for mocking it.
 * **Generic endpoint** that receives and forwards POST requests. New behavior and domain logic can be added and used without the need to write framework specific code.

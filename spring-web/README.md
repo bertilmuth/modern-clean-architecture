@@ -6,6 +6,27 @@ It provides the following features:
 * Single, behavior driven endpoint for all POST requests
 * Transactional behavior by default (customizable if necessary)
 
+## Getting started
+spring-web is available on Maven Central.
+
+If you are using Maven, include the following in your `pom.xml` file:
+
+``` xml
+<dependency>
+	<groupId>org.requirementsascode</groupId>
+	<artifactId>spring-web</artifactId>
+	<version>0.1.3</version>
+</dependency>
+```
+
+If you are using Gradle, include the following in your `build.gradle` file:
+
+```
+implementation ("org.requirementsascode:spring-web:0.1.3")
+```
+
+At least Java 8 is required to use spring-web.
+
 ## Serialization of immutable requests and responses
 spring-web autoconfigures Spring's JSON serialization mechanism, i.e. Spring's Jackson `ObjectMapper`.
 

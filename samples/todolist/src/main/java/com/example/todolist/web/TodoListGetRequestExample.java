@@ -36,10 +36,12 @@ public class TodoListGetRequestExample {
 		final Optional<FindOrCreateListResponse> findOrCreateListResponse = behavior.reactTo(new FindOrCreateListRequest());
 		
 		// Now, list its tasks
-		Optional<Object> response = findOrCreateListResponse
+		Optional<Object> optionalResponse = findOrCreateListResponse
 			.map(r -> r.getTodoListUuid())
-			.map(uuid -> behavior.reactTo(new ListTasksRequest(uuid)));
+			.flatMap(uuid -> behavior.reactTo(new ListTasksRequest(uuid)));
 
-		return response.orElse(new EmptyResponse());
+		final Object response = optionalResponse.orElse(new EmptyResponse());
+				
+		return response;
 	}
 }

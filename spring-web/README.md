@@ -63,7 +63,7 @@ You need to specify the URL of that endpoint in the `application.properties` of 
 
 `behavior.endpoint = <your endpoint URL>`
 
-spring-web autoconfigures request serialization and sets up a controller for the endpoint in the background.
+Iff you define this property, spring-web auto-configures request serialization and sets up a controller for the endpoint in the background.
 
 That is: you don't need to write Spring specific code to add new business logic. 
 

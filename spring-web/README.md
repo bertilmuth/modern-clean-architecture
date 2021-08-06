@@ -170,7 +170,7 @@ And that's the corresponsing syntax to use in Windows PowerShell:
 
 `iwr http://localhost:8080/todolist -Method 'POST' -Headers @{'Content-Type' = 'application/json'} -Body '{"@type": "FindOrCreateListRequest"}'`
 
-## Request handlers for GET requests and other methods
+## Handling of GET requests and other methods
 See the [TodoListGetRequestExample](https://github.com/bertilmuth/modern-clean-architecture/blob/main/samples/todolist/src/main/java/com/example/todolist/web/TodoListGetRequestExample.java) for details on how to interact with a behavior beyond the auto-configuration for POST requests.
 
 ## Transactional behavior by default (customizable if necessary)

@@ -9,8 +9,8 @@ It provides the following features:
 * Transactional behavior by default (customizable if necessary)
 
 The appendix explains:
-* how spring-web deals with GET requests (and other HTTP methods)
-* exception handling
+* how to deal with GET requests (and other HTTP methods)
+* how exception handling works
 
 ## Getting started
 spring-web is available on Maven Central.

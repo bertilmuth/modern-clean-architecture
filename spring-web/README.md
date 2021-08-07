@@ -8,7 +8,9 @@ It provides the following features:
 * Single, behavior driven endpoint for all POST requests
 * Transactional behavior by default (customizable if necessary)
 
-The appendix explains how spring-web deals with GET requests (and other HTTP methods).
+The appendix explains:
+* how spring-web deals with GET requests (and other HTTP methods)
+* exception handling
 
 ## Getting started
 spring-web is available on Maven Central.
@@ -218,3 +220,25 @@ class TodoListGetRequestExample {
 	}
 }
 ```
+
+### Exception handling
+Exception handling with spring-web is no different than in "normal" Spring applications.
+You create a class annotated with `@ControllerAdvice` and place methods annotation with
+`@ExceptionHandler` in it, with the exception types as parameter of that annotation.
+
+See the [TodoListExceptionHandling ](https://github.com/bertilmuth/modern-clean-architecture/blob/main/samples/todolist/src/main/java/com/example/todolist/web/TodoListExceptionHandling.java) for an example. 
+
+Note that in a real application, the different exception types may need different treatment.
+
+``` java
+@ControllerAdvice
+class TodoListExceptionHandling {
+
+	@ExceptionHandler({ Exception.class })
+	public ResponseEntity<ExceptionResponse> handle(Exception e) {
+		return responseOf(e, BAD_REQUEST);
+	}
+	...
+}
+```
+

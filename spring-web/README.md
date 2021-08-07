@@ -166,11 +166,41 @@ And that's the corresponsing syntax to use in Windows PowerShell:
 
 `iwr http://localhost:8080/todolist -Method 'POST' -Headers @{'Content-Type' = 'application/json'} -Body '{"@type": "FindOrCreateListRequest"}'`
 
-## Handling of GET requests and other methods
-See the [TodoListGetRequestExample](https://github.com/bertilmuth/modern-clean-architecture/blob/main/samples/todolist/src/main/java/com/example/todolist/web/TodoListGetRequestExample.java) for details on how to interact with a behavior beyond the auto-configuration for POST requests.
+## Handling of GET requests (and other HTTP methods)
+For requests that are not POST requests, you need to implement the following:
+1. Create a Spring Controller, and inject a `Behavior` instance into it.
+2. In the controller method, create a request object based on the request parameters.
+3. Call the behavior's `reactTo(...)` method with the request object, and handle the optional response.
+
+See the [TodoListGetRequestExample](https://github.com/bertilmuth/modern-clean-architecture/blob/main/samples/todolist/src/main/java/com/example/todolist/web/TodoListGetRequestExample.java) for details:
+
+``` java
+@RestController
+class TodoListGetRequestExample {
+	private final Behavior behavior;
+
+	// 1. Inject the behavior
+	TodoListGetRequestExample(Behavior behavior) {
+		this.behavior = behavior;
+	}
+
+	@GetMapping("${behavior.endpoint}")
+	public Object listTasks(@RequestParam UUID todoListUuid) {
+		// 2. Create the request object
+		ListTasksRequest request = new ListTasksRequest(todoListUuid);
+		
+		// 3. Call the behavior, and handle the optional response
+		Optional<Object> optionalResponse = behavior.reactTo(request);
+		final Object response = optionalResponse.orElse("");
+				
+		return response;
+	}
+}
+```
 
 ## Transactional behavior by default (customizable if necessary)
 By default, spring-web wraps every call to a request handler in a transaction (using Spring's `@Transactional` annotation).
+
 If you just want to call the request handlers without transaction support, create your own behavior bean:
 
 ``` java

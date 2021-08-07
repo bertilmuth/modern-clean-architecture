@@ -22,7 +22,7 @@ import com.example.todolist.behavior.request.ListTasksRequest;
  * @author b_muth
  */
 @RestController
-public class TodoListGetRequestExample {
+class TodoListGetRequestExample {
 	private final Behavior behavior;
 
 	TodoListGetRequestExample(Behavior behavior) {

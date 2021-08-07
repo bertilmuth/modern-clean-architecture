@@ -8,7 +8,7 @@ It provides the following features:
 * Single, behavior driven endpoint for all POST requests
 * Transactional behavior by default (customizable if necessary)
 
-The appendix explains how spring-web can with GET requests (and other HTTP methods).
+The appendix explains how spring-web deals with GET requests (and other HTTP methods).
 
 ## Getting started
 spring-web is available on Maven Central.

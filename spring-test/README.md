@@ -64,5 +64,29 @@ public class TestTodoLists extends TestRepository<TodoList, TodoListId> implemen
 }
 ```
 
+## Mock behavior endpoint
+If you are using spring-test together with [spring-web](https://github.com/bertilmuth/modern-clean-architecture/tree/main/spring-web), you can mock the behavior endpoint and send POST requests to it.
 
+The syntax is shown in the following [example](https://github.com/bertilmuth/modern-clean-architecture/blob/main/samples/todolist/src/test/java/com/example/todolist/web/TodoListBehaviorEndpointTest.java):
+
+``` java 
+@WebMvcTest
+public class TodoListBehaviorEndpointTest {
+	@Autowired
+	private MockBehaviorEndpoint endpoint;
+	
+	...
+
+	FindOrCreateListResponse response = endpoint.post(new FindOrCreateListRequest(), FindOrCreateListResponse.class);
+	...
+}
+```
+
+As you can see, the first argument of the `post(...)` method is the request object.
+
+The second argument is the expected respose class.
+
+The return value is the response received.
+
+Internally, the `post(...)` method will call Spring's `MockMvcRequestBuilders.post(...)` and perform the necessary (de)serialization.
 

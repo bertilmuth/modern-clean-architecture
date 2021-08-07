@@ -157,7 +157,7 @@ function post(jsonObject, responseHandler) {
 	
 	xhr.onreadystatechange = function() {
 		if (xhr.readyState === 4) {
-			response = JSON.parse(xhr.response);
+			response = xhr.responseText.length > 0? JSON.parse(xhr.response) : "";
 			if(response.error){
 				alert('Status ' + response.status + ' "' + response.message + '"');
 			} else{

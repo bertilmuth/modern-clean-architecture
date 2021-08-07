@@ -13,7 +13,6 @@ import com.example.todolist.behavior.request.ListTasksByCompletionRequest;
 import com.example.todolist.behavior.request.ListTasksRequest;
 import com.example.todolist.behavior.request.ToggleTaskCompletionRequest;
 import com.example.todolist.behavior.response.AddTaskResponse;
-import com.example.todolist.behavior.response.EmptyResponse;
 import com.example.todolist.behavior.response.FindOrCreateListResponse;
 import com.example.todolist.behavior.response.ListTasksByCompletionResponse;
 import com.example.todolist.behavior.response.ListTasksResponse;
@@ -43,11 +42,6 @@ public class TodoListBehaviorModel implements BehaviorModel {
 			.user(ListTasksRequest.class).systemPublish(listTasks())
 			.user(ListTasksByCompletionRequest.class).systemPublish(listTasksByCompletion())
 			.build();
-	}
-
-	@Override
-	public Object defaultResponse() {
-		return new EmptyResponse();
 	}
 
 	private Function<FindOrCreateListRequest, FindOrCreateListResponse> findOrCreateList() {

@@ -90,11 +90,6 @@ public class TodoListBehaviorModel implements BehaviorModel {
 			.build();
 	}
 
-	@Override
-	public Object defaultResponse() {
-		return new EmptyResponse();
-	}
-
 	private Function<FindOrCreateListRequest, FindOrCreateListResponse> findOrCreateList() {
 		return new FindOrCreateList(todoLists);
 	}
@@ -151,7 +146,8 @@ Once you've implemented that, here's what happens when a new request is received
 4. spring-web serializes the response (if there is one) and passes it back to the endpoint.
 
 If the behavior doesn't find a request handler for the request class in step 3, 
-or there is no response in step 4, the `defaultResponse(...)` method is called for the response.
+or there is no response in step 4, an empty string is returned as response body.
+You can customize the default response by overriding the `defaultResponse()` method of the `BehaviorModel` interface.
 
 For more examples of behavior specification, have a look at the [behavior](https://github.com/bertilmuth/modern-clean-architecture/tree/main/samples/todolist/src/main/java/com/example/todolist/behavior) package of the [todo list sample application](https://github.com/bertilmuth/modern-clean-architecture/tree/main/samples/todolist).
 

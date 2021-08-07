@@ -1,15 +1,14 @@
 package com.example.todolist.web;
 
 import java.util.Optional;
+import java.util.UUID;
 
 import org.requirementsascode.Behavior;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.todolist.behavior.request.FindOrCreateListRequest;
 import com.example.todolist.behavior.request.ListTasksRequest;
-import com.example.todolist.behavior.response.EmptyResponse;
-import com.example.todolist.behavior.response.FindOrCreateListResponse;
 
 /**
  * This class is just an example of how GET requests can be handled. In contrast
@@ -31,16 +30,11 @@ public class TodoListGetRequestExample {
 	}
 
 	@GetMapping("${behavior.endpoint}")
-	public Object listTasks() {
-		// First, find or create the todo list
-		final Optional<FindOrCreateListResponse> findOrCreateListResponse = behavior.reactTo(new FindOrCreateListRequest());
-		
-		// Now, list its tasks
-		Optional<Object> optionalResponse = findOrCreateListResponse
-			.map(r -> r.getTodoListUuid())
-			.flatMap(uuid -> behavior.reactTo(new ListTasksRequest(uuid)));
+	public Object listTasks(@RequestParam UUID todoListUuid) {
+		ListTasksRequest request = new ListTasksRequest(todoListUuid);
+		Optional<Object> optionalResponse = behavior.reactTo(request);
 
-		final Object response = optionalResponse.orElse(new EmptyResponse());
+		final Object response = optionalResponse.orElse("");
 				
 		return response;
 	}

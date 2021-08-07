@@ -9,13 +9,10 @@ Clean architecture follows these principles:
 * The user interface, database technology, external services and framework specific code can change without affecting the domain code and vice versa.
 
 Modern clean architecture provides a fresh view on clean architecture. It reduces the effort required to create a clean architecture through the following features:
-* **Single, rich domain model**. For domain logic *and* persistence. No need to maintain a separate data model, and translate between data and domain model, if you don't want them to evolve separately.
-* **No necessity for DTOs.** You can use the same immutable value objects for requests/responses in web layer and use cases. 
 * **Serialization of immutable requests and responses** without serialization specific annotations.
+* **No necessity for DTOs.** You can use the same immutable value objects for requests/responses in web layer and use cases. 
 * **Generic endpoint** that receives and forwards POST requests. New behavior and domain logic can be added and used without the need to write framework specific code.
 * **Testing with a repository double** that acts like a normal repository. No need for mocking it.
-
-The single domain model is enabled by the [jMolecules libraries](https://github.com/xmolecules/jmolecules).
 
 To start creating a modern clean architecture, visit the [spring-web](https://github.com/bertilmuth/modern-clean-architecture/tree/main/spring-web) page.
 

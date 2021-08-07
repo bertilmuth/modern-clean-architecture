@@ -31,9 +31,9 @@ class TodoListGetRequestExample {
 
 	@GetMapping("${behavior.endpoint}")
 	public Object listTasks(@RequestParam UUID todoListUuid) {
-		ListTasksRequest request = new ListTasksRequest(todoListUuid);
-		Optional<Object> optionalResponse = behavior.reactTo(request);
-
+		final ListTasksRequest request = new ListTasksRequest(todoListUuid);
+		
+		final Optional<Object> optionalResponse = behavior.reactTo(request);
 		final Object response = optionalResponse.orElse("");
 				
 		return response;

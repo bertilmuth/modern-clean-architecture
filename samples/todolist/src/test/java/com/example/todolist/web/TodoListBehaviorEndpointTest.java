@@ -17,10 +17,10 @@ import com.example.todolist.behavior.request.AddTaskRequest;
 import com.example.todolist.behavior.request.ToggleTaskCompletionRequest;
 import com.example.todolist.behavior.request.FindOrCreateListRequest;
 import com.example.todolist.behavior.request.DeleteTaskRequest;
-import com.example.todolist.behavior.request.ListTasksByCompletionRequest;
+import com.example.todolist.behavior.request.FilterTasksRequest;
 import com.example.todolist.behavior.response.AddTaskResponse;
 import com.example.todolist.behavior.response.FindOrCreateListResponse;
-import com.example.todolist.behavior.response.ListTasksByCompletionResponse;
+import com.example.todolist.behavior.response.FilterTasksResponse;
 import com.example.todolist.domain.TestTodoLists;
 
 @WebMvcTest
@@ -39,7 +39,7 @@ public class TodoListBehaviorEndpointTest {
 
 		deleteTask(todoListUuid, taskUuid1);
 
-		List<ListTasksByCompletionResponse.Task> tasks = listUncompletedTasks(todoListUuid);
+		List<FilterTasksResponse.Task> tasks = listUncompletedTasks(todoListUuid);
 
 		assertEquals(1, tasks.size());
 		assertEquals(taskUuid2, tasks.get(0).getUuid());
@@ -74,9 +74,9 @@ public class TodoListBehaviorEndpointTest {
 		endpoint.postRequest(request);
 	}
 
-	private List<ListTasksByCompletionResponse.Task> listUncompletedTasks(UUID todoListUuid) throws Exception {
-		ListTasksByCompletionRequest request = new ListTasksByCompletionRequest(todoListUuid, false);
-		ListTasksByCompletionResponse response = endpoint.post(request, ListTasksByCompletionResponse.class);
+	private List<FilterTasksResponse.Task> listUncompletedTasks(UUID todoListUuid) throws Exception {
+		FilterTasksRequest request = new FilterTasksRequest(todoListUuid, false);
+		FilterTasksResponse response = endpoint.post(request, FilterTasksResponse.class);
 		return response.getTasks();
 	}
 }

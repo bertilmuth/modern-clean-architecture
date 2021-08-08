@@ -138,7 +138,7 @@ public class TodoList implements AggregateRoot<TodoList, TodoListId> {
 	 *                  tasks
 	 * @return the (un)completed tasks
 	 */
-	public List<Task> listTasksByCompletion(boolean completed) {
+	public List<Task> filterTasks(boolean completed) {
 		final List<Task> resultTasks = tasks.stream()
 			.filter(t -> completed == t.isCompleted())
 			.collect(Collectors.toList());

@@ -10,7 +10,7 @@ import lombok.Value;
  * haven't been completed.
  */
 @Value
-public class ListTasksByCompletionRequest {
+public class FilterTasksRequest {
 	@NonNull
 	UUID todoListUuid;
 

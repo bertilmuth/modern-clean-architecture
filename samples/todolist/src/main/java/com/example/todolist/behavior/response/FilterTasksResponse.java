@@ -13,7 +13,7 @@ import lombok.Value;
  *
  */
 @Value
-public class ListTasksByCompletionResponse {
+public class FilterTasksResponse {
 	@Value
 	public static class Task {
 		@NonNull

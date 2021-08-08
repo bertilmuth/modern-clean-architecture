@@ -132,38 +132,38 @@ class TodoListTest {
 	}
 	
 	@Test
-	void listsCompletedTasksOfEmptyList() {
+	void filterCompletedTasksOfEmptyList() {
 		final TodoList todoList = new TodoList();
-		final List<Task> tasks = todoList.listTasksByCompletion(true);
+		final List<Task> tasks = todoList.filterTasks(true);
 		assertEquals(0, tasks.size());
 	}
 	
 	@Test
-	void listsCompletedTasksOfOneUncompletedTaskList() {
+	void filterCompletedTasksOfOneUncompletedTaskList() {
 		final String task1Name = "TaskOne";
 		
 		final TodoList todoList = new TodoList();
 		todoList.addTask(task1Name);
 		
-		final List<Task> tasks = todoList.listTasksByCompletion(true);
+		final List<Task> tasks = todoList.filterTasks(true);
 		assertEquals(0, tasks.size());
 	}
 	
 	@Test
-	void listsCompletedTasksOfOneCompletedTaskList() {
+	void filterCompletedTasksOfOneCompletedTaskList() {
 		final String task1Name = "TaskOne";
 		
 		final TodoList todoList = new TodoList();
 		final TaskId taskId = todoList.addTask(task1Name);
 		todoList.toggleTaskCompletion(taskId);
 		
-		final List<Task> tasks = todoList.listTasksByCompletion(true);
+		final List<Task> tasks = todoList.filterTasks(true);
 		assertEquals(1, tasks.size());
 		assertEquals(task1Name, tasks.get(0).getName());
 	}
 	
 	@Test
-	void listsCompletedTasksOfList() {
+	void filterCompletedTasksOfList() {
 		final String task1Name = "TaskOne";
 		final String task2Name = "TaskTwo";
 		final String task3Name = "TaskThree";
@@ -176,33 +176,33 @@ class TodoListTest {
 		todoList.toggleTaskCompletion(taskId1);
 		todoList.toggleTaskCompletion(taskId3);
 		
-		final List<Task> tasks = todoList.listTasksByCompletion(true);
+		final List<Task> tasks = todoList.filterTasks(true);
 		assertEquals(2, tasks.size());
 		assertEquals(task1Name, tasks.get(0).getName());
 		assertEquals(task3Name, tasks.get(1).getName());
 	}
 	
 	@Test
-	void listsUncompletedTasksOfEmptyList() {
+	void filterUncompletedTasksOfEmptyList() {
 		final TodoList todoList = new TodoList();
-		final List<Task> tasks = todoList.listTasksByCompletion(false);
+		final List<Task> tasks = todoList.filterTasks(false);
 		assertEquals(0, tasks.size());
 	}
 	
 	@Test
-	void listsUncompletedTasksOfOneUncompletedTaskList() {
+	void filterUncompletedTasksOfOneUncompletedTaskList() {
 		final String task1Name = "TaskOne";
 		
 		final TodoList todoList = new TodoList();
 		todoList.addTask(task1Name);
 		
-		List<Task> tasks = todoList.listTasksByCompletion(false);
+		List<Task> tasks = todoList.filterTasks(false);
 		assertEquals(1, tasks.size());
 		assertEquals(task1Name, tasks.get(0).getName());
 	}
 	
 	@Test
-	void listsUncompletedTasksOfList() {
+	void filterUncompletedTasksOfList() {
 		final String task1Name = "TaskOne";
 		final String task2Name = "TaskTwo";
 		final String task3Name = "TaskThree";
@@ -215,7 +215,7 @@ class TodoListTest {
 		todoList.toggleTaskCompletion(taskId1);
 		todoList.toggleTaskCompletion(taskId3);
 		
-		final List<Task> tasks = todoList.listTasksByCompletion(false);
+		final List<Task> tasks = todoList.filterTasks(false);
 		assertEquals(1, tasks.size());
 		assertEquals(task2Name, tasks.get(0).getName());
 	}

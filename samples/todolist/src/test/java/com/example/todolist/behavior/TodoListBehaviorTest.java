@@ -22,11 +22,11 @@ import com.example.todolist.behavior.request.AddTaskRequest;
 import com.example.todolist.behavior.request.ToggleTaskCompletionRequest;
 import com.example.todolist.behavior.request.FindOrCreateListRequest;
 import com.example.todolist.behavior.request.DeleteTaskRequest;
-import com.example.todolist.behavior.request.ListTasksByCompletionRequest;
+import com.example.todolist.behavior.request.FilterTasksRequest;
 import com.example.todolist.behavior.request.ListTasksRequest;
 import com.example.todolist.behavior.response.AddTaskResponse;
 import com.example.todolist.behavior.response.FindOrCreateListResponse;
-import com.example.todolist.behavior.response.ListTasksByCompletionResponse;
+import com.example.todolist.behavior.response.FilterTasksResponse;
 import com.example.todolist.behavior.response.ListTasksResponse;
 import com.example.todolist.domain.IllegalTaskName;
 import com.example.todolist.domain.Task;
@@ -170,12 +170,12 @@ class TodoListBehaviorTest {
 
 		// When user completes first task and lists tasks
 		whenUserTogglesTaskCompletion(todoListId, taskUuid1());
-		final ListTasksByCompletionResponse listTasksResponse = whenUserListsTasksByCompletion(todoListId, true);
+		final FilterTasksResponse listTasksResponse = whenUserListsTasksByCompletion(todoListId, true);
 
 		// Then the correct tasks are returned in order
-		ListTasksByCompletionResponse.Task expectedTask = new ListTasksByCompletionResponse.Task(taskUuid1(), TASK_NAME, true);
+		FilterTasksResponse.Task expectedTask = new FilterTasksResponse.Task(taskUuid1(), TASK_NAME, true);
 
-		final List<ListTasksByCompletionResponse.Task> actualTasks = listTasksResponse.getTasks();
+		final List<FilterTasksResponse.Task> actualTasks = listTasksResponse.getTasks();
 		thenTasksAre(actualTasks, expectedTask);
 	}
 
@@ -232,10 +232,10 @@ class TodoListBehaviorTest {
 		return tasks;
 	}
 	
-	private ListTasksByCompletionResponse whenUserListsTasksByCompletion(UUID todoListId, boolean completed) {
-		final ListTasksByCompletionRequest request = new ListTasksByCompletionRequest(todoListId, completed);
-		final Optional<ListTasksByCompletionResponse> optionalResponse = todoListBehavior.reactTo(request);
-		final ListTasksByCompletionResponse tasks = optionalResponse.get();
+	private FilterTasksResponse whenUserListsTasksByCompletion(UUID todoListId, boolean completed) {
+		final FilterTasksRequest request = new FilterTasksRequest(todoListId, completed);
+		final Optional<FilterTasksResponse> optionalResponse = todoListBehavior.reactTo(request);
+		final FilterTasksResponse tasks = optionalResponse.get();
 		return tasks;
 	}
 

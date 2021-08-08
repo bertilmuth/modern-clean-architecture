@@ -5,8 +5,8 @@ import java.util.UUID;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-import com.example.todolist.behavior.request.ListTasksByCompletionRequest;
-import com.example.todolist.behavior.response.ListTasksByCompletionResponse;
+import com.example.todolist.behavior.request.FilterTasksRequest;
+import com.example.todolist.behavior.response.FilterTasksResponse;
 import com.example.todolist.domain.Task;
 import com.example.todolist.domain.TodoList;
 import com.example.todolist.domain.TodoList.TodoListId;
@@ -17,29 +17,30 @@ import lombok.AllArgsConstructor;
 import lombok.NonNull;
 
 /**
- * A function that lists the tasks of a todo list.
+ * A function that lists either all tasks that have been completed, or tasks
+ * that haven't been completed.
  * 
  * @author b_muth
  *
  */
 @AllArgsConstructor
-class ListTasksByCompletion implements Function<ListTasksByCompletionRequest, ListTasksByCompletionResponse> {
+class FilterTasks implements Function<FilterTasksRequest, FilterTasksResponse> {
 	@NonNull
 	private final TodoLists repository;
 
 	@Override
-	public ListTasksByCompletionResponse apply(@NonNull ListTasksByCompletionRequest request) {
+	public FilterTasksResponse apply(@NonNull FilterTasksRequest request) {
 		final UUID todoListUuid = request.getTodoListUuid();
 
 		final TodoList todoList = repository.findById(TodoListId.of(todoListUuid))
 			.orElseThrow(() -> new TodoListNotFound("Repository doesn't contain a TodoList of id " + todoListUuid));
 
-		final List<Task> tasks = todoList.listTasksByCompletion(request.getCompleted());
+		final List<Task> tasks = todoList.filterTasks(request.getCompleted());
 
-		List<ListTasksByCompletionResponse.Task> taskList = tasks.stream()
-			.map(t -> new ListTasksByCompletionResponse.Task(t.getId().getUuid(), t.getName(), t.isCompleted()))
+		List<FilterTasksResponse.Task> taskList = tasks.stream()
+			.map(t -> new FilterTasksResponse.Task(t.getId().getUuid(), t.getName(), t.isCompleted()))
 			.collect(Collectors.toList());
 
-		return new ListTasksByCompletionResponse(taskList);
+		return new FilterTasksResponse(taskList);
 	}
 }

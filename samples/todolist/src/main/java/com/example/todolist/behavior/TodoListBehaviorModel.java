@@ -9,12 +9,12 @@ import org.requirementsascode.Model;
 import com.example.todolist.behavior.request.AddTaskRequest;
 import com.example.todolist.behavior.request.DeleteTaskRequest;
 import com.example.todolist.behavior.request.FindOrCreateListRequest;
-import com.example.todolist.behavior.request.ListTasksByCompletionRequest;
+import com.example.todolist.behavior.request.FilterTasksRequest;
 import com.example.todolist.behavior.request.ListTasksRequest;
 import com.example.todolist.behavior.request.ToggleTaskCompletionRequest;
 import com.example.todolist.behavior.response.AddTaskResponse;
 import com.example.todolist.behavior.response.FindOrCreateListResponse;
-import com.example.todolist.behavior.response.ListTasksByCompletionResponse;
+import com.example.todolist.behavior.response.FilterTasksResponse;
 import com.example.todolist.behavior.response.ListTasksResponse;
 import com.example.todolist.domain.TodoLists;
 
@@ -40,7 +40,7 @@ public class TodoListBehaviorModel implements BehaviorModel {
 			.user(ToggleTaskCompletionRequest.class).system(toggleTaskCompletion())
 			.user(DeleteTaskRequest.class).system(deleteTask())
 			.user(ListTasksRequest.class).systemPublish(listTasks())
-			.user(ListTasksByCompletionRequest.class).systemPublish(listTasksByCompletion())
+			.user(FilterTasksRequest.class).systemPublish(filterTasks())
 			.build();
 	}
 
@@ -64,7 +64,7 @@ public class TodoListBehaviorModel implements BehaviorModel {
 		return new ListTasks(todoLists);
 	}
 	
-	private Function<ListTasksByCompletionRequest, ListTasksByCompletionResponse> listTasksByCompletion() {
-		return new ListTasksByCompletion(todoLists);
+	private Function<FilterTasksRequest, FilterTasksResponse> filterTasks() {
+		return new FilterTasks(todoLists);
 	}
 }

@@ -41,6 +41,7 @@ dependencies {
 	implementation "org.jmolecules.integrations:jmolecules-jpa"
 	implementation "org.jmolecules.integrations:jmolecules-spring"
 	
+	implementation "org.requirementsascode:requirementsascodecore:2.0"
 	implementation ("org.requirementsascode:spring-web:" + version)
 	testImplementation ("org.requirementsascode:spring-test:" + version)
 }

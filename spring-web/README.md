@@ -15,19 +15,25 @@ The appendix explains:
 ## Getting started
 spring-web is available on Maven Central.
 
-If you are using Maven, include the following in your `pom.xml` file:
+If you are using Maven, include the following dependencies in your `pom.xml` file:
 
 ``` xml
 <dependency>
 	<groupId>org.requirementsascode</groupId>
+	<artifactId>requirementsascodecore</artifactId>
+	<version>2.0</version>
+</dependency>
+<dependency>
+	<groupId>org.requirementsascode</groupId>
 	<artifactId>spring-web</artifactId>
-	<version>0.1.3</version>
+	<version>0.1.4</version>
 </dependency>
 ```
 
 If you are using Gradle, include the following in your `build.gradle` file:
 
 ```
+implementation "org.requirementsascode:requirementsascodecore:2.0"
 implementation ("org.requirementsascode:spring-web:0.1.3")
 ```
 

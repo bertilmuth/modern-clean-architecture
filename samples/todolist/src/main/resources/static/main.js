@@ -84,6 +84,10 @@ function completeTask(taskDiv){
 	});
 }
 
+function toggleCompletion(taskDiv){
+	taskDiv.classList.toggle("completedTask");
+}
+
 function filterTasks(event) {
 	const taskDivs = todoList.childNodes;
     for(let i = taskDivs.length-1; i>=0; i-- ){
@@ -96,24 +100,21 @@ function filterTasks(event) {
 			restoreTasksOf(todoListUuid);
             break;
         case "completed":
-			showTasksByCompletion(true);
+			filterTasksByCompletion(true);
             break;
         case "uncompleted":
-			showTasksByCompletion(false);
+			filterTasksByCompletion(false);
             break;
     }
 } 
 
-function showTasksByCompletion(c){
-	const request = {"@type":"ListTasksByCompletionRequest", "todoListUuid":todoListUuid, completed:c};
+function filterTasksByCompletion(c){
+	const request = {"@type":"FilterTasksRequest", "todoListUuid":todoListUuid, completed:c};
 	post(request, function(response){	
 		showTasks(response.tasks);
 	});
 }
 
-function toggleCompletion(taskDiv){
-	taskDiv.classList.toggle("completedTask");
-}
 
 function showTasks(tasks){
 	tasks.forEach(task => {

@@ -180,7 +180,7 @@ If you just want to call the request handlers without transaction support, creat
 @Configuration
 class StatelessBehaviorConfiguration {
 	@Bean
-	Behavior statelessBehaviorOf(BehaviorModel behaviorModel) {
+	Behavior statelessBehavior(BehaviorModel behaviorModel) {
 		StatelessBehavior statelessBehavior = StatelessBehavior.of(behaviorModel);
 		return statelessBehavior;
 	}

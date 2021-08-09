@@ -106,6 +106,7 @@ public class TodoListBehaviorModel implements BehaviorModel {
 		return new ToggleTaskCompletion(todoLists);
 	}
 	...
+}
 ```
 
 The `user(...)` statements define the request classes. The `system(...)` or `systemPublish(...)` statements define the request handlers.

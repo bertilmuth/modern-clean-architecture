@@ -1,5 +1,5 @@
-include 'spring-web'
-include 'spring-test'
+include 'spring-behavior-web'
+include 'spring-behavior-test'
 include 'samples:todolist'
 
 

@@ -1,7 +1,7 @@
-# spring-web
+# spring-behavior-web
 [![Gitter](https://badges.gitter.im/requirementsascode/community.svg)](https://gitter.im/requirementsascode/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
-The goal of the spring-web project is to reduce the effort to develop a modern clean architecture in a Spring Boot application.
+The goal of the spring-behavior-web project is to reduce the effort to develop a modern clean architecture in a Spring Boot application.
 
 It provides the following features:
 * Serialization of immutable requests/responses without extra annotations
@@ -13,7 +13,7 @@ The appendix explains:
 * how exception handling works
 
 ## Getting started
-spring-web is available on Maven Central.
+spring-behavior-web is available on Maven Central.
 
 If you are using Maven, include the following dependencies in your `pom.xml` file:
 
@@ -25,8 +25,8 @@ If you are using Maven, include the following dependencies in your `pom.xml` fil
 </dependency>
 <dependency>
 	<groupId>org.requirementsascode</groupId>
-	<artifactId>spring-web</artifactId>
-	<version>0.1.4</version>
+	<artifactId>spring-behavior-web</artifactId>
+	<version>0.1.5</version>
 </dependency>
 ```
 
@@ -34,17 +34,17 @@ If you are using Gradle, include the following in your `build.gradle` file:
 
 ```
 implementation "org.requirementsascode:requirementsascodecore:2.0"
-implementation ("org.requirementsascode:spring-web:0.1.4")
+implementation ("org.requirementsascode:spring-behavior-web:0.1.5")
 ```
 
-At least Java 8 is required to use spring-web.
+At least Java 8 is required to use spring-behavior-web.
 
 ## Serialization of immutable requests and responses
-spring-web autoconfigures Spring's JSON serialization mechanism, i.e. Spring's Jackson `ObjectMapper`.
+spring-behavior-web autoconfigures Spring's JSON serialization mechanism, i.e. Spring's Jackson `ObjectMapper`.
 
 It makes all private final fields visible for serialization, and uses the all argument constructor for deserialization of requests. 
 
-Here's a [sample request class](https://github.com/bertilmuth/modern-clean-architecture/blob/main/samples/todolist/src/main/java/com/example/todolist/behavior/request/AddTaskRequest.java) that can be deserialized using spring-web. It's part of the [todolist sample application](https://github.com/bertilmuth/modern-clean-architecture/tree/main/samples/todolist):
+Here's a [sample request class](https://github.com/bertilmuth/modern-clean-architecture/blob/main/samples/todolist/src/main/java/com/example/todolist/behavior/request/AddTaskRequest.java) that can be deserialized using spring-behavior-web. It's part of the [todolist sample application](https://github.com/bertilmuth/modern-clean-architecture/tree/main/samples/todolist):
 
 ``` java
 import lombok.Value;
@@ -58,22 +58,22 @@ public class AddTaskRequest {
 
 As you can see, the class uses [Lombok](https://projectlombok.org/) to enable a concise notation. 
 
-That's not a requirement of spring-web. You can use a POJO with getters as well.
+That's not a requirement of spring-behavior-web. You can use a POJO with getters as well.
 
 Note that it doesn't matter if the class has zero, one or several properties. 
-spring-web makes sure that the serialization works. 
+spring-behavior-web makes sure that the serialization works. 
 
 You don't need to put in any extra annotation to enable this kind of (de)serialization.
 
 ## Single, behavior driven endpoint for all POST requests
 ### Implementation
-spring-web enables you to define a single endpoint for POST requests.
+spring-behavior-web enables you to define a single endpoint for POST requests.
 
 You need to specify the URL of that endpoint in the `application.properties` of your application (example [here](https://github.com/bertilmuth/modern-clean-architecture/blob/main/samples/todolist/src/main/resources/application.properties)):
 
 `behavior.endpoint = <your endpoint URL>`
 
-Iff you define this property, spring-web auto-configures request serialization and sets up a controller for the endpoint in the background.
+Iff you define this property, spring-behavior-web auto-configures request serialization and sets up a controller for the endpoint in the background.
 
 That is: you don't need to write Spring specific code to add new business logic. 
 
@@ -136,7 +136,7 @@ class FindOrCreateList implements Function<FindOrCreateListRequest, FindOrCreate
 
 It's a regular `java.util.Function` that takes a request as input and produces a response. 
 
-In order for spring-web to know about the behavior model, you need to register it as a bean. 
+In order for spring-behavior-web to know about the behavior model, you need to register it as a bean. 
 
 [Example](https://github.com/bertilmuth/modern-clean-architecture/blob/main/samples/todolist/src/main/java/com/example/todolist/web/TodoListConfiguration.java):
 
@@ -151,10 +151,10 @@ class TodoListConfiguration {
 ```
 
 Once you've implemented that, here's what happens when a new request is received at the endpoint specified in the `application.properties`:
-1. spring-web deserializes the request received at the endpoint, 
-2. spring-web passes the request to a behavior configured by the behavior model,
+1. spring-behavior-web deserializes the request received at the endpoint, 
+2. spring-behavior-web passes the request to a behavior configured by the behavior model,
 3. the behavior passes the request to the appropriate request handler (if there is one),
-4. spring-web serializes the response (if there is one) and passes it back to the endpoint.
+4. spring-behavior-web serializes the response (if there is one) and passes it back to the endpoint.
 
 If the behavior doesn't find a request handler for the request class in step 3, 
 or there is no response in step 4, an empty string is returned as response body.
@@ -167,7 +167,7 @@ To learn more about how to create behavior models, have a look at the [requireme
 ### Sending POST requests
 Once you started your Spring Boot application, you can send POST request to the endpoint.
 
-You need to include an additional `@type` property in the JSON content for spring-web to determine the right request class during deserialization.
+You need to include an additional `@type` property in the JSON content for spring-behavior-web to determine the right request class during deserialization.
 
 For example, this is a valid `curl` command of the todo list sample application (Unix):
 
@@ -178,7 +178,7 @@ And that's the corresponsing syntax to use in Windows PowerShell:
 `iwr http://localhost:8080/todolist -Method 'POST' -Headers @{'Content-Type' = 'application/json'} -Body '{"@type": "FindOrCreateListRequest"}'`
 
 ## Transactional behavior by default (customizable if necessary)
-By default, spring-web wraps every call to a request handler in a transaction (using Spring's `@Transactional` annotation).
+By default, spring-behavior-web wraps every call to a request handler in a transaction (using Spring's `@Transactional` annotation).
 
 If you just want to call the request handlers without transaction support, create your own behavior bean:
 
@@ -229,7 +229,7 @@ class TodoListGetRequestExample {
 ```
 
 ### Exception handling
-Exception handling with spring-web is no different than in "normal" Spring applications.
+Exception handling with spring-behavior-web is no different than in "normal" Spring applications.
 You create a class annotated with `@ControllerAdvice` and place methods annotation with
 `@ExceptionHandler` in it, with the exception types as parameter of that annotation.
 

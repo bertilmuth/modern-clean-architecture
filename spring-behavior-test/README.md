@@ -1,22 +1,22 @@
-# spring-test
+# spring-behavior-test
 [![Gitter](https://badges.gitter.im/requirementsascode/community.svg)](https://gitter.im/requirementsascode/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
-The goal of the spring-test project is to support testing of applications with a modern clean architecture.
+The goal of the spring-behavior-test project is to support testing of applications with a modern clean architecture.
 
 It provides the following features:
 * a test repository that acts as a test double for Spring Data `CrudRepository` or jMolecules `Repository`
-* a mock behavior endpoint to test behavior endpoints created by the spring-web project
+* a mock behavior endpoint to test behavior endpoints created by the spring-behavior-web project
 
 ## Getting started
-spring-web is available on Maven Central.
+spring-behavior-test is available on Maven Central.
 
 If you are using Maven, include the following in your `pom.xml` file:
 
 ``` xml
 <dependency>
 	<groupId>org.requirementsascode</groupId>
-	<artifactId>spring-test</artifactId>
-	<version>0.1.3</version>
+	<artifactId>spring-behavior-test</artifactId>
+	<version>0.1.5</version>
 	<scope>test</scope>
 </dependency>
 ```
@@ -24,15 +24,15 @@ If you are using Maven, include the following in your `pom.xml` file:
 If you are using Gradle, include the following in your `build.gradle` file:
 
 ```
-testImplementation ("org.requirementsascode:spring-test:0.1.3")
+testImplementation ("org.requirementsascode:spring-behavior-test:0.1.5")
 ```
 
-At least Java 8 is required to use spring-test.
+At least Java 8 is required to use spring-behavior-test.
 
 ## Test repository
 To create a test repository that acts as a test double for a real repository, you need to create a repository class.
 
-That repository class must extend the `TestRepository` class, and pass an implementation of the [EntityAccess](https://github.com/bertilmuth/modern-clean-architecture/blob/d5de8bafa18e8e19d6b1ccc49fa8c73d2123a1ec/spring-test/src/main/java/org/requirementsascode/spring/test/EntityAccess.java) interface to the super class constructor.
+That repository class must extend the `TestRepository` class, and pass an implementation of the [EntityAccess](https://github.com/bertilmuth/modern-clean-architecture/blob/d5de8bafa18e8e19d6b1ccc49fa8c73d2123a1ec/spring-behavior-test/src/main/java/org/requirementsascode/spring/test/EntityAccess.java) interface to the super class constructor.
 
 [Example](https://github.com/bertilmuth/modern-clean-architecture/blob/main/samples/todolist/src/test/java/com/example/todolist/domain/TestTodoLists.java):
 
@@ -65,7 +65,7 @@ public class TestTodoLists extends TestRepository<TodoList, TodoListId> implemen
 ```
 
 ## Mock behavior endpoint
-If you are using spring-test together with [spring-web](https://github.com/bertilmuth/modern-clean-architecture/tree/main/spring-web), you can mock the behavior endpoint and send POST requests to it.
+If you are using spring-behavior-test together with [spring-behavior-web](https://github.com/bertilmuth/modern-clean-architecture/tree/main/spring-behavior-web), you can mock the behavior endpoint and send POST requests to it.
 
 The syntax is shown in the following [example](https://github.com/bertilmuth/modern-clean-architecture/blob/main/samples/todolist/src/test/java/com/example/todolist/web/TodoListBehaviorEndpointTest.java):
 

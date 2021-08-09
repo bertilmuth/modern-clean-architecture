@@ -15,9 +15,9 @@ Modern clean architecture reduces the effort to create a clean architecture thro
 * **Generic endpoint** that receives and forwards POST requests. New behavior and domain logic can be added and used without the need to write framework specific code.
 * **Testing with a repository double** that acts like a normal repository. No need for mocking it.
 
-To start creating a modern clean architecture, visit the [spring-web](https://github.com/bertilmuth/modern-clean-architecture/tree/main/spring-web) page.
+To start creating a modern clean architecture, visit the [spring-behavior-web](https://github.com/bertilmuth/modern-clean-architecture/tree/main/spring-behavior-web) page.
 
-For testing support, see the [spring-test](https://github.com/bertilmuth/modern-clean-architecture/tree/main/spring-test) page.
+For testing support, see the [spring-behavior-test](https://github.com/bertilmuth/modern-clean-architecture/tree/main/spring-behavior-test) page.
 
 For a working sample from frontend to backend, see the [To Do List sample](https://github.com/bertilmuth/modern-clean-architecture/tree/main/samples/todolist).
 

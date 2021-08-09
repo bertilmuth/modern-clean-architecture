@@ -4,7 +4,7 @@ plugins {
 
 jar {
     manifest {
-        attributes "Implementation-Title": "spring behavior test integration",
+        attributes "Implementation-Title": "spring behavior test",
                    "Implementation-Version":archiveVersion
     }
 }

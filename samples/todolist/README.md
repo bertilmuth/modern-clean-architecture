@@ -1,4 +1,4 @@
-# todo list sample
+# To Do List sample
 To run the sample with Gradle, change into your local todolist directory, and enter the following in a shell:
 
 `./gradlew bootRun`

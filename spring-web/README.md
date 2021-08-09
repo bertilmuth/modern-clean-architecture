@@ -34,7 +34,7 @@ If you are using Gradle, include the following in your `build.gradle` file:
 
 ```
 implementation "org.requirementsascode:requirementsascodecore:2.0"
-implementation ("org.requirementsascode:spring-web:0.1.3")
+implementation ("org.requirementsascode:spring-web:0.1.4")
 ```
 
 At least Java 8 is required to use spring-web.

@@ -19,5 +19,5 @@ To start creating a modern clean architecture, visit the [spring-web](https://gi
 
 For testing support, see the [spring-test](https://github.com/bertilmuth/modern-clean-architecture/tree/main/spring-test) page.
 
-For a working sample from frontend to backend, see the [todo list sample](https://github.com/bertilmuth/modern-clean-architecture/tree/main/samples/todolist).
+For a working sample from frontend to backend, see the [To Do List sample](https://github.com/bertilmuth/modern-clean-architecture/tree/main/samples/todolist).
 

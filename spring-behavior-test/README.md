@@ -24,7 +24,7 @@ If you are using Maven, include the following in your `pom.xml` file:
 If you are using Gradle, include the following in your `build.gradle` file:
 
 ```
-testImplementation ("org.requirementsascode:spring-behavior-test:0.2")
+testImplementation "org.requirementsascode:spring-behavior-test:0.2"
 ```
 
 At least Java 8 is required to use spring-behavior-test.

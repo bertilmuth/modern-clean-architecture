@@ -1,4 +1,4 @@
-package org.requirementsascode.spring.test;
+package org.requirementsascode.spring.behavior.test;
 
 import java.util.LinkedHashMap;
 import java.util.List;

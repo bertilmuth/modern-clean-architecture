@@ -32,7 +32,7 @@ At least Java 8 is required to use spring-behavior-test.
 ## Test repository
 To create a test repository that acts as a test double for a real repository, you need to create a repository class.
 
-That repository class must extend the `TestRepository` class, and pass an implementation of the [EntityAccess](https://github.com/bertilmuth/modern-clean-architecture/blob/main/spring-behavior-test/src/main/java/org/requirementsascode/spring/test/EntityAccess.java) interface to the super class constructor.
+That repository class must extend the `TestRepository` class, and pass an implementation of the [EntityAccess](https://github.com/bertilmuth/modern-clean-architecture/blob/main/spring-behavior-test/src/main/java/org/requirementsascode/spring/behavior/test/EntityAccess.java) interface to the super class constructor.
 
 [Example](https://github.com/bertilmuth/modern-clean-architecture/blob/main/samples/todolist/src/test/java/com/example/todolist/domain/TestTodoLists.java):
 

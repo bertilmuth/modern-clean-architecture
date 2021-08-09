@@ -1,4 +1,4 @@
-package org.requirementsascode.spring.serialization;
+package org.requirementsascode.serialization;
 
 import static com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility.ANY;
 import static com.fasterxml.jackson.annotation.PropertyAccessor.FIELD;

@@ -1,4 +1,4 @@
-package org.requirementsascode.spring.serialization;
+package org.requirementsascode.serialization;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

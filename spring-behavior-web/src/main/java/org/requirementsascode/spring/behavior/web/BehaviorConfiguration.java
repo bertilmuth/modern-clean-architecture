@@ -1,4 +1,4 @@
-package org.requirementsascode.spring.behavior;
+package org.requirementsascode.spring.behavior.web;
 
 import org.requirementsascode.Behavior;
 import org.requirementsascode.BehaviorModel;

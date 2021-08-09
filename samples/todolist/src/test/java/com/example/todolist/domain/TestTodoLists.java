@@ -4,8 +4,8 @@ import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
 
-import org.requirementsascode.spring.test.EntityAccess;
-import org.requirementsascode.spring.test.TestRepository;
+import org.requirementsascode.spring.behavior.test.EntityAccess;
+import org.requirementsascode.spring.behavior.test.TestRepository;
 
 import com.example.todolist.domain.TodoList.TodoListId;
 

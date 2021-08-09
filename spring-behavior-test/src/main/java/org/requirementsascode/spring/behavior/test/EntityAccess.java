@@ -1,4 +1,4 @@
-package org.requirementsascode.spring.test;
+package org.requirementsascode.spring.behavior.test;
 
 /**
  * Provides the id of an existing entity, a new id for an entity to be created,

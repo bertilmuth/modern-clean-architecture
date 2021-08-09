@@ -1,4 +1,4 @@
-package org.requirementsascode.spring.test;
+package org.requirementsascode.spring.behavior.test;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -41,7 +41,7 @@ public class MockBehaviorEndpoint {
 		this(mockMvc, behaviorEndpointUrl, objectMapper, HttpStatus.OK);
 	}
 
-	private MockBehaviorEndpoint(MockMvc mockMvc, @Value("${behavior.endpoint}") String behaviorEndpointUrl,
+	private MockBehaviorEndpoint(MockMvc mockMvc, String behaviorEndpointUrl,
 		ObjectMapper objectMapper, HttpStatus httpStatus) {
 		this.mockMvc = mockMvc;
 		this.behaviorEndpointUrl = behaviorEndpointUrl;

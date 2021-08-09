@@ -1,7 +1,7 @@
-package org.requirementsascode.spring.behavior;
+package org.requirementsascode.spring.behavior.web;
 
 import org.requirementsascode.BehaviorModel;
-import org.requirementsascode.spring.serialization.MessageSerializationModule;
+import org.requirementsascode.serialization.MessageSerializationModule;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

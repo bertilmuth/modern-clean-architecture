@@ -1,4 +1,4 @@
-package org.requirementsascode.spring.serialization;
+package org.requirementsascode.serialization;
 
 import java.lang.reflect.MalformedParametersException;
 import java.lang.reflect.Parameter;

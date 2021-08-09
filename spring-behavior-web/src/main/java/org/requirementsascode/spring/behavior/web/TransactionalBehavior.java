@@ -1,4 +1,4 @@
-package org.requirementsascode.spring.behavior;
+package org.requirementsascode.spring.behavior.web;
 
 import java.util.Objects;
 import java.util.Optional;

@@ -1,6 +1,6 @@
-package org.requirementsascode.spring.serialization;
+package org.requirementsascode.serialization;
 
-import static org.requirementsascode.spring.serialization.Classes.isSubClassOfAny;
+import static org.requirementsascode.serialization.Classes.isSubClassOfAny;
 
 import java.util.Collection;
 

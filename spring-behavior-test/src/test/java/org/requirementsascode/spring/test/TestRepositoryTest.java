@@ -14,6 +14,8 @@ import java.util.UUID;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.requirementsascode.spring.behavior.test.EntityAccess;
+import org.requirementsascode.spring.behavior.test.TestRepository;
 import org.requirementsascode.spring.test.TestEntity.TestEntityId;
 
 class TestRepositoryTest {

@@ -1,4 +1,4 @@
-package org.requirementsascode.spring.controller;
+package org.requirementsascode.spring.behavior.web;
 
 import org.requirementsascode.Behavior;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;

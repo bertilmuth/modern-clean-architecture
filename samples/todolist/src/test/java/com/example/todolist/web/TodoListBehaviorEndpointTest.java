@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.UUID;
 
 import org.junit.jupiter.api.Test;
-import org.requirementsascode.spring.test.MockBehaviorEndpoint;
+import org.requirementsascode.spring.behavior.test.MockBehaviorEndpoint;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.context.TestConfiguration;
@@ -14,13 +14,13 @@ import org.springframework.context.annotation.Bean;
 
 import com.example.todolist.behavior.TodoListBehaviorModel;
 import com.example.todolist.behavior.request.AddTaskRequest;
-import com.example.todolist.behavior.request.ToggleTaskCompletionRequest;
-import com.example.todolist.behavior.request.FindOrCreateListRequest;
 import com.example.todolist.behavior.request.DeleteTaskRequest;
 import com.example.todolist.behavior.request.FilterTasksRequest;
+import com.example.todolist.behavior.request.FindOrCreateListRequest;
+import com.example.todolist.behavior.request.ToggleTaskCompletionRequest;
 import com.example.todolist.behavior.response.AddTaskResponse;
-import com.example.todolist.behavior.response.FindOrCreateListResponse;
 import com.example.todolist.behavior.response.FilterTasksResponse;
+import com.example.todolist.behavior.response.FindOrCreateListResponse;
 import com.example.todolist.domain.TestTodoLists;
 
 @WebMvcTest

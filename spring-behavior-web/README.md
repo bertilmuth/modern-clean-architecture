@@ -26,7 +26,7 @@ If you are using Maven, include the following dependencies in your `pom.xml` fil
 <dependency>
 	<groupId>org.requirementsascode</groupId>
 	<artifactId>spring-behavior-web</artifactId>
-	<version>0.1.5</version>
+	<version>0.2</version>
 </dependency>
 ```
 
@@ -34,7 +34,7 @@ If you are using Gradle, include the following in your `build.gradle` file:
 
 ```
 implementation "org.requirementsascode:requirementsascodecore:2.0"
-implementation ("org.requirementsascode:spring-behavior-web:0.1.5")
+implementation ("org.requirementsascode:spring-behavior-web:0.2")
 ```
 
 At least Java 8 is required to use spring-behavior-web.

@@ -3,7 +3,7 @@
 	
 	<groupId>org.example</groupId>
 	<artifactId>todolist</artifactId>
-	<version>0.1.5</version>
+	<version>0.2</version>
 	
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -28,13 +28,13 @@
 		<dependency>
 			<groupId>org.requirementsascode</groupId>
 			<artifactId>spring-behavior-web</artifactId>
-			<version>0.1.5</version>
+			<version>0.2</version>
 		</dependency>
 		
 		<dependency>
 			<groupId>org.requirementsascode</groupId>
 			<artifactId>spring-behavior-test</artifactId>
-			<version>0.1.5</version>
+			<version>0.2</version>
 			<scope>test</scope>
 		</dependency>
 		

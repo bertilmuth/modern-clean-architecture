@@ -1,14 +1,15 @@
 # modern-clean-architecture
 [![Gitter](https://badges.gitter.im/requirementsascode/community.svg)](https://gitter.im/requirementsascode/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
-Libraries for creating services with a [clean architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html), but with significantly less effort necessary than usual.
+Create services with a [clean architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html) with significantly less effort necessary than usual.
 
-Clean architecture follows these principles:
-* The domain code and use cases of an application are independent of frameworks, UI, the database or any external agency, e.g. external services.
-* Through this clear separation of concern, the domain code and use cases become testable independent of the framework, UI or infrastructure.
-* The user interface, database technology, external services and framework specific code can change without affecting the domain code and vice versa.
+The main idea of Clean Architecture: Domain code and use cases are independent of frameworks, UI, the database and external services.
 
-Modern clean architecture provides a fresh view on clean architecture. It reduces the effort required to create a clean architecture through the following features:
+So building an application in a Clean Architecture style has a positive effect on maintainability:
+* You can test domain code and use cases without the framework, UI and infrastructure.
+* Technology decisions can change without affecting the domain code. And vice versa. It is even possible to switch to a new framework with limited effort.
+
+Modern clean architecture reduces the effort to create a clean architecture through the following features:
 * **Serialization of immutable requests and responses** without serialization specific annotations.
 * **No necessity for DTOs.** You can use the same immutable value objects for requests/responses in web layer and use cases. 
 * **Generic endpoint** that receives and forwards POST requests. New behavior and domain logic can be added and used without the need to write framework specific code.

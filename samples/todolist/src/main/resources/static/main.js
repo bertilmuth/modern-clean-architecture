@@ -1,5 +1,5 @@
 // URL for posting all requests,
-// Must be the same as the on in application.properties
+// Must be the same as the one in application.properties
 // (See https://github.com/bertilmuth/modern-clean-architecture/blob/main/samples/todolist/src/main/resources/application.properties)
 const BEHAVIOR_ENDPOINT = "/todolist";
 

@@ -16,7 +16,7 @@ If you are using Maven, include the following in your `pom.xml` file:
 <dependency>
 	<groupId>org.requirementsascode</groupId>
 	<artifactId>spring-behavior-test</artifactId>
-	<version>0.2</version>
+	<version>0.2.1</version>
 	<scope>test</scope>
 </dependency>
 ```
@@ -24,7 +24,7 @@ If you are using Maven, include the following in your `pom.xml` file:
 If you are using Gradle, include the following in your `build.gradle` file:
 
 ```
-testImplementation "org.requirementsascode:spring-behavior-test:0.2"
+testImplementation "org.requirementsascode:spring-behavior-test:0.2.1"
 ```
 
 At least Java 8 is required to use spring-behavior-test.
@@ -67,7 +67,7 @@ public class TestTodoLists extends TestRepository<TodoList, TodoListId> implemen
 ## Mock behavior endpoint
 If you are using spring-behavior-test together with [spring-behavior-web](https://github.com/bertilmuth/modern-clean-architecture/tree/main/spring-behavior-web), you can mock the behavior endpoint and send POST requests to it.
 
-The syntax is shown in the following [example](https://github.com/bertilmuth/modern-clean-architecture/blob/main/samples/todolist/src/test/java/com/example/todolist/web/TodoListBehaviorEndpointTest.java):
+The syntax is shown in the following [example](https://github.com/bertilmuth/modern-clean-architecture/blob/main/samples/todolist/src/test/java/com/example/todolist/adapter/spring/TodoListBehaviorEndpointTest.java):
 
 ``` java 
 @WebMvcTest

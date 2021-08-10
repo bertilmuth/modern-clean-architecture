@@ -1,4 +1,4 @@
-package org.requirementsascode.spring.test;
+package org.requirementsascode.spring.behavior.test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -14,9 +14,7 @@ import java.util.UUID;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.requirementsascode.spring.behavior.test.EntityAccess;
-import org.requirementsascode.spring.behavior.test.TestRepository;
-import org.requirementsascode.spring.test.TestEntity.TestEntityId;
+import org.requirementsascode.spring.behavior.test.TestEntity.TestEntityId;
 
 class TestRepositoryTest {
 	private TestRepository<TestEntity, TestEntityId> repository;

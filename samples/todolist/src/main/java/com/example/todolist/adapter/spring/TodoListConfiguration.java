@@ -1,4 +1,4 @@
-package com.example.todolist.web;
+package com.example.todolist.adapter.spring;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

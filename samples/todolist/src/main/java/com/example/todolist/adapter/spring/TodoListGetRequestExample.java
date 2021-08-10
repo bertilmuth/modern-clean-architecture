@@ -1,4 +1,4 @@
-package com.example.todolist.web;
+package com.example.todolist.adapter.spring;
 
 import java.util.Optional;
 import java.util.UUID;

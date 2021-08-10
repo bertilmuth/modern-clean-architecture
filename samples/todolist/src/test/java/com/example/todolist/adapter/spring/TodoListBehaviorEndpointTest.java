@@ -1,4 +1,4 @@
-package com.example.todolist.web;
+package com.example.todolist.adapter.spring;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

@@ -26,7 +26,7 @@ If you are using Maven, include the following dependencies in your `pom.xml` fil
 <dependency>
 	<groupId>org.requirementsascode</groupId>
 	<artifactId>spring-behavior-web</artifactId>
-	<version>0.2</version>
+	<version>0.2.1</version>
 </dependency>
 ```
 
@@ -34,7 +34,7 @@ If you are using Gradle, include the following in your `build.gradle` file:
 
 ```
 implementation "org.requirementsascode:requirementsascodecore:2.0"
-implementation "org.requirementsascode:spring-behavior-web:0.2"
+implementation "org.requirementsascode:spring-behavior-web:0.2.1"
 ```
 
 At least Java 8 is required to use spring-behavior-web.
@@ -138,7 +138,7 @@ It's a regular `java.util.Function` that takes a request as input and produces a
 
 In order for spring-behavior-web to know about the behavior model, you need to register it as a bean. 
 
-[Example](https://github.com/bertilmuth/modern-clean-architecture/blob/main/samples/todolist/src/main/java/com/example/todolist/web/TodoListConfiguration.java):
+[Example](https://github.com/bertilmuth/modern-clean-architecture/blob/main/samples/todolist/src/main/java/com/example/todolist/adapter/spring/TodoListConfiguration.java):
 
 ``` java
 @Configuration
@@ -202,7 +202,7 @@ For requests that are not POST requests, you need to implement the following:
 2. In the controller method, create a request object based on the request parameters.
 3. Call the behavior's `reactTo(...)` method with the request object, and handle the optional response.
 
-See the [TodoListGetRequestExample](https://github.com/bertilmuth/modern-clean-architecture/blob/main/samples/todolist/src/main/java/com/example/todolist/web/TodoListGetRequestExample.java) for details:
+See the [TodoListGetRequestExample](https://github.com/bertilmuth/modern-clean-architecture/blob/main/samples/todolist/src/main/java/com/example/todolist/adapter/spring/TodoListGetRequestExample.java) for details:
 
 ``` java
 @RestController
@@ -233,7 +233,7 @@ Exception handling with spring-behavior-web is no different than in "normal" Spr
 You create a class annotated with `@ControllerAdvice` and place methods annotation with
 `@ExceptionHandler` in it, with the exception types as parameter of that annotation.
 
-See the [TodoListExceptionHandling ](https://github.com/bertilmuth/modern-clean-architecture/blob/main/samples/todolist/src/main/java/com/example/todolist/web/TodoListExceptionHandling.java) for an example. 
+See the [TodoListExceptionHandling ](https://github.com/bertilmuth/modern-clean-architecture/blob/main/samples/todolist/src/main/java/com/example/todolist/adapter/spring/TodoListExceptionHandling.java) for an example. 
 
 Note that in a real application, the different exception types may need different treatment.
 

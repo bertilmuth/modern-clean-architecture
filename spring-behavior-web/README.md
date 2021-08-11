@@ -8,9 +8,7 @@ It provides the following features:
 * Single, behavior driven endpoint for all POST requests
 * Transactional behavior by default (customizable if necessary)
 
-The appendix explains:
-* how to deal with GET requests (and other HTTP methods)
-* how exception handling works
+If you have any questions, see the [Questions & Answers](https://github.com/bertilmuth/modern-clean-architecture/wiki/Questions-&-Answers) on the wiki. Or chat on Gitter.
 
 ## Getting started
 spring-behavior-web is available on Maven Central.
@@ -193,59 +191,4 @@ class StatelessBehaviorConfiguration {
 }
 ```
 
-## Appendix
-
-### About GET requests (and other HTTP methods)
-
-For requests that are not POST requests, you need to implement the following:
-1. Create a Spring Controller, and inject a `Behavior` instance into it.
-2. In the controller method, create a request object based on the request parameters.
-3. Call the behavior's `reactTo(...)` method with the request object, and handle the optional response.
-
-See the [TodoListGetRequestExample](https://github.com/bertilmuth/modern-clean-architecture/blob/main/samples/todolist/src/main/java/com/example/todolist/adapter/spring/TodoListGetRequestExample.java) for details:
-
-``` java
-@RestController
-class TodoListGetRequestExample {
-	private final Behavior behavior;
-
-	// 1. Inject the behavior
-	TodoListGetRequestExample(Behavior behavior) {
-		this.behavior = behavior;
-	}
-
-	@GetMapping("${behavior.endpoint}")
-	public Object listTasks(@RequestParam UUID todoListUuid) {
-		// 2. Create the request object
-		final ListTasksRequest request = new ListTasksRequest(todoListUuid);
-		
-		// 3. Call the behavior, and handle the optional response
-		final Optional<Object> optionalResponse = behavior.reactTo(request);
-		final Object response = optionalResponse.orElse("");
-				
-		return response;
-	}
-}
-```
-
-### Exception handling
-Exception handling with spring-behavior-web is no different than in "normal" Spring applications.
-You create a class annotated with `@ControllerAdvice` and place methods annotation with
-`@ExceptionHandler` in it, with the exception types as parameter of that annotation.
-
-See the [TodoListExceptionHandling ](https://github.com/bertilmuth/modern-clean-architecture/blob/main/samples/todolist/src/main/java/com/example/todolist/adapter/spring/TodoListExceptionHandling.java) for an example. 
-
-Note that in a real application, the different exception types may need different treatment.
-
-``` java
-@ControllerAdvice
-class TodoListExceptionHandling {
-
-	@ExceptionHandler({ Exception.class })
-	public ResponseEntity<ExceptionResponse> handle(Exception e) {
-		return responseOf(e, BAD_REQUEST);
-	}
-	...
-}
-```
 

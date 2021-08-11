@@ -8,7 +8,7 @@ It provides the following features:
 * Single, behavior driven endpoint for all POST requests
 * Transactional behavior by default (customizable if necessary)
 
-If you have any questions, see the [Questions & Answers](https://github.com/bertilmuth/modern-clean-architecture/wiki/Questions-&-Answers) on the wiki. Or chat on Gitter.
+If you have any questions, see the [Questions & Answers](https://github.com/bertilmuth/modern-clean-architecture/wiki/Questions-&-Answers) on the wiki. Or chat with me on Gitter.
 
 ## Getting started
 spring-behavior-web is available on Maven Central.

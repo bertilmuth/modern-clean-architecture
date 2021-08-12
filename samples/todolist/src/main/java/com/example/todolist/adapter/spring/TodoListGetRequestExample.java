@@ -29,7 +29,7 @@ class TodoListGetRequestExample {
 		this.behavior = behavior;
 	}
 
-	@GetMapping("${behavior.endpoint}")
+	@GetMapping("/todolist/tasks")
 	public Object listTasks(@RequestParam UUID todoListUuid) {
 		final ListTasksRequest request = new ListTasksRequest(todoListUuid);
 		

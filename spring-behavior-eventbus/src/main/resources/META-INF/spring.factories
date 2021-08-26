@@ -1,3 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-org.requirementsascode.spring.behavior.eventbus.EventBusConfiguration,\
-org.requirementsascode.spring.behavior.eventlistener.EventListenerConfiguration
+org.requirementsascode.spring.eventbus.EventBusConfiguration

@@ -26,7 +26,7 @@ class BehaviorConfiguration {
 	 * @return the registered behavior
 	 */
 	@Bean
-	Behavior transactionalBehaviorOf(BehaviorModel behaviorModel) {
+	Behavior behavior(BehaviorModel behaviorModel) {
 		TransactionalBehavior transactionalBehavior = new TransactionalBehavior(behaviorModel);
 		return transactionalBehavior;
 	}

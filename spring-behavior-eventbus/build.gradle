@@ -4,14 +4,14 @@ plugins {
 
 jar {
     manifest {
-        attributes "Implementation-Title": "spring behavior web",
+        attributes "Implementation-Title": "spring behavior eventbus",
                    "Implementation-Version":archiveVersion
     }
 }
 
 dependencies {	
 	implementation "org.springframework.boot:spring-boot-starter-web:$project.ext.springVersion"
-	compileOnly "org.springframework.boot:spring-boot-starter-data-jpa:$project.ext.springVersion"
-		
+
+	implementation "org.requirementsascode:spring-behavior-web:" + version		
 	implementation "org.requirementsascode:requirementsascodecore:2.0"
 }

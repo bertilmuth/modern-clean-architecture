@@ -1,0 +1,28 @@
+package org.requirementsascode.spring.behavior.eventbus;
+
+import java.util.Objects;
+import java.util.Optional;
+
+import org.requirementsascode.Behavior;
+import org.requirementsascode.BehaviorModel;
+import org.requirementsascode.StatelessBehavior;
+
+class SpringEventBus implements EventBus {
+	private final Behavior behavior;
+	
+	SpringEventBus(BehaviorModel eventBusBehaviorModel) {
+		Objects.requireNonNull(eventBusBehaviorModel, "behaviorModel must not be null!");
+		this.behavior = StatelessBehavior.of(eventBusBehaviorModel);
+	}
+
+	@Override
+	public <T> Optional<T> reactTo(Object event) {
+		return behavior.reactTo(event);
+	}
+
+	@Override
+	public BehaviorModel behaviorModel() {
+		return behavior.behaviorModel();
+	}
+}
+

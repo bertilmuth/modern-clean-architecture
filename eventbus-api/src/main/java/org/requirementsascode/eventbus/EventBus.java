@@ -1,4 +1,4 @@
-package org.requirementsascode.spring.eventbus;
+package org.requirementsascode.eventbus;
 
 import org.requirementsascode.Behavior;
 

@@ -4,12 +4,13 @@ plugins {
 
 jar {
     manifest {
-        attributes "Implementation-Title": "spring behavior eventbus",
+        attributes "Implementation-Title": "spring eventbus",
                    "Implementation-Version":archiveVersion
     }
 }
 
 dependencies {	
+	implementation project(":eventbus-api")
 	implementation "org.springframework.boot:spring-boot-starter-web:$project.ext.springVersion"
 
 	implementation "org.requirementsascode:spring-behavior-web:" + version		

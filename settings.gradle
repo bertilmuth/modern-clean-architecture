@@ -1,5 +1,6 @@
 include 'spring-behavior-web'
 include 'spring-behavior-test'
+include 'eventbus-api'
 include 'spring-eventbus'
 include 'samples:todolist'
 

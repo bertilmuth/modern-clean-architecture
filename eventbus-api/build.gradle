@@ -1,0 +1,14 @@
+plugins {
+    id "java-library"
+}
+
+jar {
+    manifest {
+        attributes "Implementation-Title": "eventbus api",
+                   "Implementation-Version":archiveVersion
+    }
+}
+
+dependencies {	
+	implementation "org.requirementsascode:requirementsascodecore:2.0"
+}

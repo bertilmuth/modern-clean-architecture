@@ -11,7 +11,7 @@ So building an application in a Clean Architecture style has a positive effect o
 
 Modern clean architecture reduces the effort to create a clean architecture through the following features:
 * **Serialization of immutable requests and responses** without serialization specific annotations.
-* **No necessity for DTOs.** You can use the same immutable value objects for requests/responses in web layer and use cases. 
+* **No necessity for DTOs.** You can use the same immutable objects for requests/responses in web layer and use cases. 
 * **Generic endpoint** that receives and forwards POST requests. New behavior and domain logic can be added and used without the need to write framework specific code.
 * **Testing with a repository double** that acts like a normal repository. No need for mocking it.
 
